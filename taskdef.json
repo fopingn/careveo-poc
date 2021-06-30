@@ -1,9 +1,9 @@
 {
-    "family": "hello-world",
+    "family": "careveo_prod",
     "containerDefinitions": [
         {
             "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
-            "name": "hello-world",
+            "name": "careveo_prod",
             "cpu": 10,
             "memory": 256,
             "essential": true,
