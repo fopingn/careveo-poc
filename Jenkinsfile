@@ -9,7 +9,7 @@ pipeline {
 
     stage('Cloning git repo') {
       steps {
-        sh 'git clone -b master git@github.com/fopingn/careveo-poc.git'
+        sh 'git clone -b master https://github.com/fopingn/careveo-poc.git'
       }
     }
 
