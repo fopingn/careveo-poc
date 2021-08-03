@@ -31,7 +31,6 @@ pipeline {
     AWS_ACCOUNT_ID = '118698220025'
     AWS_DEFAULT_REGION = 'eu-west-3'
     IMAGE_REPO_NAME = 'careveo_prod'
-    IMAGE_TAG = 'v_${BUILD_NUMBER}'
     REPOSITORY_URI = '"${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"'
   }
 }
