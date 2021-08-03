@@ -7,12 +7,6 @@ pipeline {
       }
     }
 
-    stage('Cloning git repo') {
-      steps {
-        sh 'git clone -b master https://github.com/fopingn/careveo-poc.git'
-      }
-    }
-
     stage('Building image') {
       steps {
         sh 'docker build -t "${IMAGE_REPO_NAME}:${IMAGE_TAG}" .'
