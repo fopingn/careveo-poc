@@ -9,7 +9,7 @@ pipeline {
 
     stage('Cloning git repo') {
       steps {
-        sh 'checkout([$class: \'GitSCM\', branches: [[name: \'*/master\']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: \'\', url: \'https://github.com/fopingn/cicd-demo.git\']]])'
+        sh 'git clone -b master git@github.com/fopingn/careveo-poc.git'
       }
     }
 
