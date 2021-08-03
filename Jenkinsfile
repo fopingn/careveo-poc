@@ -15,14 +15,20 @@ pipeline {
 
     stage('Building image') {
       steps {
-        sh ' dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"'
+        sh 'docker build -t "${IMAGE_REPO_NAME}:${IMAGE_TAG}" .'
       }
     }
 
-    stage('Pushing to ECR') {
+    stage('Tagging image') {
       steps {
-        sh '''sh "docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} ${REPOSITORY_URI}:$IMAGE_TAG"
-                sh "docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"'''
+        sh '''docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} ${REPOSITORY_URI}:${IMAGE_TAG}
+                '''
+      }
+    }
+
+    stage('Pushing image to ECR') {
+      steps {
+        sh 'docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}'
       }
     }
 
