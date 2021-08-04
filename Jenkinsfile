@@ -7,19 +7,17 @@ pipeline {
       }
     }
 
-    stage('Cleaning up repo folder') {
-      steps {
-        sh 'git rm -r careveo-poc'
-      }
-
-    }
-
     stage('Cloning or pulling repo') {
       steps {
         sh 'git clone https://github.com/fopingn/careveo-poc.git'
       }
-
+      post {
+        failure {
+          echo "git pull"
+            }
+        }
     }
+    
 
     stage('Building image') {
       steps {
