@@ -7,8 +7,9 @@ pipeline {
       }
     }
 
-    stage('Building image') {
+    stage('Cloning repo and Building image') {
       steps {
+        sh 'git clone https://github.com/fopingn/careveo-poc.git'
         sh 'docker build -t "${IMAGE_REPO_NAME}" .'
       }
     }
