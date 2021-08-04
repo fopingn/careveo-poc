@@ -11,14 +11,12 @@ pipeline {
       steps {
         sh 'git rm -r careveo-poc'
       }
-
     }
 
     stage('Cloning or pulling repo') {
       steps {
         sh 'git clone https://github.com/fopingn/careveo-poc.git'
       }
-
     }
 
     stage('Building image') {
