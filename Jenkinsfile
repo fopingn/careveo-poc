@@ -9,15 +9,8 @@ pipeline {
 
     stage('Cloning or pulling repo') {
       steps {
-        sh 'git clone https://github.com/fopingn/careveo-poc.git'
+        sh 'if cd careveo-poc; then git pull; else git clone https://github.com/fopingn/careveo-poc.git careveo-poc; fi'
       }
-      post {
-        failure {
-          echo "git pull"
-            }
-        }
-    }
-    
 
     stage('Building image') {
       steps {
