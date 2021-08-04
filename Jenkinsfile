@@ -11,7 +11,7 @@ pipeline {
       steps {
         sh 'if cd careveo-poc; then git pull; else git clone https://github.com/fopingn/careveo-poc.git careveo-poc; fi'
       }
-
+    }
     stage('Building image') {
       steps {
         sh 'docker build -t "${IMAGE_REPO_NAME}" .'
